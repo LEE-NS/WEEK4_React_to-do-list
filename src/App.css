@@ -1,0 +1,65 @@
+#root {
+  max-width: 1200px;
+  min-width: 800px;
+  margin: 0 auto;
+  background-color: beige;
+}
+h1 {
+  text-align: center;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
+}
+label {
+  margin-right: 15px;
+}
+input {
+  width: 240px;
+  height: 20px;
+}
+#title, #job, form button {
+  margin: 0 15px;
+}
+form button {
+  font-size: 12px;
+  background-color: #ffd900;
+}
+.category {
+  min-height: 300px;
+  margin: 0 15px;
+}
+li {
+  display: flex;
+  align-items: center;
+  border: 1px solid #000;
+}
+.text-list {
+  width: 75%;
+}
+.text-list p:nth-child(1) {
+  font-weight: 900;
+  margin: 5px;
+}
+.text-list p:nth-child(2) {
+  margin: 5px;
+}
+.button-list {
+  width: 20%;
+}
+.check, .delete {
+  font-size: 12px;
+  margin: 0 10px;
+  color: white;
+}
+.check {
+  background-color: #4a8a4a;
+}
+.delete {
+  background-color: #cf4949;
+}
+.is-done {
+  background-color: grey;
+}
