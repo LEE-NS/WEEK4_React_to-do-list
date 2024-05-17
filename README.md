@@ -16,3 +16,5 @@ React로 to-do list를 작성해본다.
     * TodoItem.jsx :
       - task 카드 양식 컴포넌트.
       - isDone의 값에 따라 내부 속성과 UI가 다른 task 카드를 생성한다.
+
+* TodoForm.jsx에 유효성 검사 추
