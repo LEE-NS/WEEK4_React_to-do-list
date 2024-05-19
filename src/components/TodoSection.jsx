@@ -1,44 +1,19 @@
 import React from "react"
 import TodoItem from "./TodoItem"
 
-export default function TodoSection({
-  sectionName,
-  tasks,
-  setTasks,
-  working,
-  setWorking,
-  done,
-  setDone,
-}) {
-  const removeTask = (id) => {
-    const newTasks = tasks.filter((task) => task.id !== id)
-    setTasks(newTasks)
-
-    const newWorking = newTasks.filter((task) => task.isDone === false)
-    const newDone = newTasks.filter((task) => task.isDone === true)
-    setWorking(newWorking)
-    setDone(newDone)
-  }
-
-  const updateTask = (task) => {
-    task.isDone = !task.isDone
-    const newWorking = tasks.filter((task) => task.isDone === false)
-    const newDone = tasks.filter((task) => task.isDone === true)
-    setWorking(newWorking)
-    setDone(newDone)
-  }
+export default function TodoSection({ sectionName, tasks, setTasks }) {
+  const working = tasks.filter((task) => !task.isDone)
+  const done = tasks.filter((task) => task.isDone)
+  // 섹션 자체에 filter를 사용해 둔다.
 
   return (
     <div className="category">
       <h2>{sectionName}</h2>
-      <ul key={sectionName}>
+      <ul>
         {(sectionName === "working" ? working : done).map((task) => (
-          <TodoItem
-            key={task.id}
-            task={task}
-            removeTask={removeTask}
-            updateTask={updateTask}
-          />
+          <li key={task.id}>
+            <TodoItem task={task} tasks={tasks} setTasks={setTasks} />
+          </li>
         ))}
       </ul>
     </div>

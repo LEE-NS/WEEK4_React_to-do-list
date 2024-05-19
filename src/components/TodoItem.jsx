@@ -1,31 +1,43 @@
 import React from "react"
 
-const TodoItem = ({ task, removeTask, updateTask }) => {
+const TodoItem = ({ task, tasks, setTasks }) => {
+  const { id, title, job } = task
+
+  const removeTask = (id) => {
+    const newTasks = tasks.filter((eachTask) => eachTask.id !== id)
+    setTasks(newTasks)
+  }
+
+  const updateTask = (id) => {
+    const updatedTasks = tasks.map((eachTask) =>
+      eachTask.id === id ? { ...eachTask, isDone: !task.isDone } : eachTask
+    )
+    setTasks(updatedTasks)
+  }
+
   return (
-    <li>
+    <div>
       <div className="text-list">
-        <p>{task.title}</p>
-        <p>{task.job}</p>
+        <p>{title}</p>
+        <p>{job}</p>
       </div>
       <div id="button-list">
         <button
           className={task.isDone ? "check is-done" : "check"}
-          onClick={() => {
-            updateTask(task)
-          }}
+          onClick={() => updateTask(id)}
         >
           {task.isDone ? "취소" : "완료"}
         </button>
         <button
           className="delete"
           onClick={() => {
-            removeTask(task.id)
+            removeTask(id)
           }}
         >
           삭제
         </button>
       </div>
-    </li>
+    </div>
   )
 }
 

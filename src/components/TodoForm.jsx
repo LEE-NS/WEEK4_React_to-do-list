@@ -1,8 +1,8 @@
 import React from "react"
 import { useState } from "react"
 
-export default function Form({ tasks, setTasks, working, setWorking }) {
-  const id = Date.now()
+export default function Form({ tasks, setTasks }) {
+  const id = crypto.randomUUID()
   const isDone = false
   const [title, setTitle] = useState("")
   const [job, setJob] = useState("")
@@ -18,7 +18,6 @@ export default function Form({ tasks, setTasks, working, setWorking }) {
     }
     const task = { id, title, job, isDone }
     setTasks([...tasks, task])
-    setWorking([...working, task])
     setTitle("")
     setJob("")
   }
